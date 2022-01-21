@@ -87,7 +87,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Event_Manager",
 "language": "GDScript",
-"path": "res://Assets/EventManager.gd"
+"path": "res://Assets/Events/EventManager.gd"
 }, {
 "base": "Event",
 "class": "HoverEntered",
@@ -188,7 +188,7 @@ Logger="*res://Tool_Scripts/Logger.gd"
 InteractMenu="*res://Assets/HUD/InteractMenu.tscn"
 HoverDescriptor="*res://Assets/Clicks/_Hover/Autoload_Hover_Label_Identifier.tscn"
 Pointer="*res://Assets/HUD/ClickPointer.tscn"
-HoverEventManager="*res://Assets/EventManager.gd"
+HoverEventManager="*res://Assets/Events/EventManager.gd"
 
 [display]
 
