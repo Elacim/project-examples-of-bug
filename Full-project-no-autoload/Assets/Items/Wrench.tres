@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Item.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/Sprites/wrench.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Items/Coin.tres" type="Resource" id=3]
+[ext_resource path="res://Assets/Items/Burger.tres" type="Resource" id=4]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource( 1 )
+name = "Wrench"
+texture = ExtResource( 2 )
+amount = 1
+is_stackable = true
+ingredients = [ ExtResource( 4 ), ExtResource( 3 ) ]
+ingredient_costs = [ 1, 5 ]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Item.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/Sprites/Coin_spin.png" type="Texture" id=2]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource( 1 )
+name = "Coin"
+texture = ExtResource( 2 )
+amount = 13
+is_stackable = true
+ingredients = [ null, null ]
+ingredient_costs = [ 1, 1 ]

@@ -1,0 +1,55 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Resource",
+"class": "Event",
+"language": "GDScript",
+"path": "res://assets/Events/Event.gd"
+}, {
+"base": "Node",
+"class": "Event_Manager",
+"language": "GDScript",
+"path": "res://assets/Events/EventManager.gd"
+}, {
+"base": "Event",
+"class": "HoverEntered",
+"language": "GDScript",
+"path": "res://assets/Events/Events/HoverEntered.gd"
+}, {
+"base": "Event",
+"class": "HoverExited",
+"language": "GDScript",
+"path": "res://assets/Events/Events/HoverExited.gd"
+} ]
+_global_script_class_icons={
+"Event": "",
+"Event_Manager": "",
+"HoverEntered": "",
+"HoverExited": ""
+}
+
+[application]
+
+config/name="Variables-not-updating"
+run/main_scene="res://Spatial.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+HoverDescriptor="*res://assets/Hover/Autoload_Hover_Descriptor.tscn"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

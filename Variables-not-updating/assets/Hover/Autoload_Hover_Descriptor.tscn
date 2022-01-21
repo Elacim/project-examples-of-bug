@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/Hover/Autoload_Hover_Descriptor.gd" type="Script" id=2]
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("Viewport")
+
+[node name="Hover_Identifier" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 265, 100 )
+transparent_bg = true
+
+[node name="HoverText" type="RichTextLabel" parent="Viewport"]
+margin_right = 266.0
+margin_bottom = 90.0
+bbcode_enabled = true
+bbcode_text = "[center]Placeholder text. Nothing else is here.[/center]"
+text = "Placeholder text. Nothing else is here."
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogueSprite" type="Sprite3D" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+flip_v = true
+texture = SubResource( 1 )
+
+[node name="TickUpFade" type="Timer" parent="DialogueSprite"]
+wait_time = 0.005
+
+[node name="TickDownFade" type="Timer" parent="DialogueSprite"]
+wait_time = 0.05

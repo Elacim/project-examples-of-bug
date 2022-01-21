@@ -1,0 +1,320 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Spatial",
+"class": "Area_Generic",
+"language": "GDScript",
+"path": "res://Assets/Clicks/ClickTypes/Scripts/Type_Generic.gd"
+}, {
+"base": "Area_Generic",
+"class": "Area_Overhead",
+"language": "GDScript",
+"path": "res://Assets/Clicks/ClickTypes/Scripts/Type_Overhead.gd"
+}, {
+"base": "Area_Generic",
+"class": "Area_Popup",
+"language": "GDScript",
+"path": "res://Assets/Clicks/ClickTypes/Scripts/Type_Popup.gd"
+}, {
+"base": "RigidBody",
+"class": "ClickPointer",
+"language": "GDScript",
+"path": "res://Assets/HUD/ClickPointer.gd"
+}, {
+"base": "Area",
+"class": "Click_Generic",
+"language": "GDScript",
+"path": "res://Assets/Clicks/_ClickAreas/Scripts/Click_Generic.gd"
+}, {
+"base": "Click_Generic",
+"class": "Click_Overhead_Dialogue",
+"language": "GDScript",
+"path": "res://Assets/Clicks/_ClickAreas/Scripts/Click_Overhead_Dialogue.gd"
+}, {
+"base": "Click_Generic",
+"class": "Click_Popup_Dialogue",
+"language": "GDScript",
+"path": "res://Assets/Clicks/_ClickAreas/Scripts/Click_Popup_Dialogue.gd"
+}, {
+"base": "Click_Generic",
+"class": "Click_Take_Item",
+"language": "GDScript",
+"path": "res://Assets/Clicks/_ClickAreas/Scripts/Click_Take_Item.gd"
+}, {
+"base": "Reference",
+"class": "DTS",
+"language": "GDScript",
+"path": "res://addons/dialogic/Localization/translation_service.gd"
+}, {
+"base": "Node",
+"class": "Dialogic",
+"language": "GDScript",
+"path": "res://addons/dialogic/Other/DialogicClass.gd"
+}, {
+"base": "Control",
+"class": "DialogicBackgroundMusic",
+"language": "GDScript",
+"path": "res://addons/dialogic/Nodes/BackgroundMusic.gd"
+}, {
+"base": "Node",
+"class": "DialogicDefinitionsUtil",
+"language": "GDScript",
+"path": "res://addons/dialogic/Other/DialogicDefinitionsUtil.gd"
+}, {
+"base": "Reference",
+"class": "DialogicResources",
+"language": "GDScript",
+"path": "res://addons/dialogic/Other/DialogicResources.gd"
+}, {
+"base": "Reference",
+"class": "DialogicUtil",
+"language": "GDScript",
+"path": "res://addons/dialogic/Other/DialogicUtil.gd"
+}, {
+"base": "Resource",
+"class": "Event",
+"language": "GDScript",
+"path": "res://Assets/Events/Event.gd"
+}, {
+"base": "Node",
+"class": "Event_Manager",
+"language": "GDScript",
+"path": "res://Assets/Events/EventManager.gd"
+}, {
+"base": "Event",
+"class": "HoverEntered",
+"language": "GDScript",
+"path": "res://Assets/Events/Events/HoverEntered.gd"
+}, {
+"base": "Event",
+"class": "HoverExited",
+"language": "GDScript",
+"path": "res://Assets/Events/Events/HoverExited.gd"
+}, {
+"base": "Resource",
+"class": "Inventory",
+"language": "GDScript",
+"path": "res://Assets/Inventory/Inventory.gd"
+}, {
+"base": "ColorRect",
+"class": "Inventory_Container",
+"language": "GDScript",
+"path": "res://Assets/Inventory/InventoryContainer.gd"
+}, {
+"base": "Resource",
+"class": "Item",
+"language": "GDScript",
+"path": "res://Item.gd"
+}, {
+"base": "Resource",
+"class": "Item_Table",
+"language": "GDScript",
+"path": "res://Assets/Items/ItemTable.gd"
+}, {
+"base": "Node",
+"class": "MiscTools",
+"language": "GDScript",
+"path": "res://Tool_Scripts/MiscTools.gd"
+}, {
+"base": "Control",
+"class": "Slot",
+"language": "GDScript",
+"path": "res://Assets/Inventory/Slot.gd"
+}, {
+"base": "Node",
+"class": "dialogue_handler",
+"language": "GDScript",
+"path": "res://Assets/HUD/DialogueHandler.gd"
+}, {
+"base": "Node",
+"class": "dialogue_tools",
+"language": "GDScript",
+"path": "res://Tool_Scripts/DialogueTokenTools.gd"
+}, {
+"base": "Resource",
+"class": "inv_old",
+"language": "GDScript",
+"path": "res://Assets/Inventory/inv_old.gd"
+} ]
+_global_script_class_icons={
+"Area_Generic": "",
+"Area_Overhead": "",
+"Area_Popup": "",
+"ClickPointer": "",
+"Click_Generic": "",
+"Click_Overhead_Dialogue": "",
+"Click_Popup_Dialogue": "",
+"Click_Take_Item": "",
+"DTS": "",
+"Dialogic": "",
+"DialogicBackgroundMusic": "",
+"DialogicDefinitionsUtil": "",
+"DialogicResources": "",
+"DialogicUtil": "",
+"Event": "",
+"Event_Manager": "",
+"HoverEntered": "",
+"HoverExited": "",
+"Inventory": "",
+"Inventory_Container": "",
+"Item": "",
+"Item_Table": "",
+"MiscTools": "",
+"Slot": "",
+"dialogue_handler": "",
+"dialogue_tools": "",
+"inv_old": ""
+}
+
+[application]
+
+config/name="CthulhuClick"
+run/main_scene="res://World.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://Global.gd"
+DialogueHandler="*res://Assets/HUD/DialogueHandler.gd"
+Logger="*res://Tool_Scripts/Logger.gd"
+InteractMenu="*res://Assets/HUD/InteractMenu.tscn"
+HoverDescriptor="*res://Assets/Clicks/_Hover/Autoload_Hover_Label_Identifier.tscn"
+Pointer="*res://Assets/HUD/ClickPointer.tscn"
+HoverEventManager="res://Assets/Events/EventManager.gd"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/dialogic/plugin.cfg" )
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
+
+[input]
+
+ui_accept={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777222,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+camera_rotate_clockwise={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+camera_rotate_anti_clockwise={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+player_clicked_location={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+camera_move_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+camera_move_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+camera_move_forward={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+camera_move_backward={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_open_interact_menu={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+toggle_open_inventory={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+inventory_drag_item={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+ui_left_mouse={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+ui_right_mouse={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="World"
+3d_physics/layer_1="World"
+2d_physics/layer_2="Characters"
+3d_physics/layer_2="Characters"
+3d_physics/layer_3="Pointer"
+2d_physics/layer_5="ClickAreas1"
+3d_physics/layer_5="ClickAreas"
+2d_physics/layer_6="ClickAreas2"
+3d_physics/layer_6="HoverIdentifier"
+2d_physics/layer_7="ContextMenu1"
+2d_physics/layer_8="ContextMenu2"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
