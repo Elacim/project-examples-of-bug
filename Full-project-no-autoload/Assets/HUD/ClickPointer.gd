@@ -6,11 +6,16 @@ var miscTools = MiscTools.new()
 var previous_node_entered setget set_node_entered, get_node_entered
 
 func set_node_entered(value: Spatial):
-	if value:
+	if value or value == null:
 		previous_node_entered = value
 func get_node_entered():
 	return previous_node_entered
 
+func _ready() -> void:
+	add_child(miscTools)
+
+func _on_click_area_exited():
+	pass
 
 # There's a bug right now with previous_node_entered triggering it's dialogue every
 # time the player clicks while the pointer is disabled/not on another click_area
@@ -26,8 +31,9 @@ func _on_player_clicked():
 			previous_node_entered.execute_dialogue()
 		else:
 			print_debug("previous_node_entered (%s) has no '_on_execute_node_dialogue'" % previous_node_entered)
-	set_node_entered(null)
+#	set_node_entered(null)
 	move_to_void()
+
 
 
 func disable_pointer():

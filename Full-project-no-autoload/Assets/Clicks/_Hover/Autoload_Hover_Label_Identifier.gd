@@ -17,7 +17,7 @@ var hover_exit_event = preload("res://Assets/Events/Events/HoverExited.gd")
 
 
 func _ready() -> void:
-#	event_manager.setup_manager()
+	add_child(hover_event_manager)
 	if get_parent_spatial():
 		get_parent().hover_area_coll = $CollisionShape
 		get_parent().hover_area = self

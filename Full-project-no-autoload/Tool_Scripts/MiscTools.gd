@@ -11,11 +11,14 @@ func set_collision(object: CollisionShape, value: bool):
 #		print_debug(object, " collision set to: ", value)
 		set_deferred("disabled", value)
 
+
 func set_bit_layer(object: RigidBody, values: Array, change_to):
+	if !object: return
 	for layer in values:
 		object.set_collision_layer_bit(layer, change_to)
 
 func set_bit_mask(object: RigidBody, values: Array, change_to):
+	if !object: return
 	for mask in values:
 		object.set_collision_mask_bit(mask, change_to)
 	pass

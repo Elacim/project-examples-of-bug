@@ -9,6 +9,7 @@ func _init() -> void:
 
 func execute():
 	HoverDescriptor.reset_to_default_state()
+#	HoverDescriptor.fade_out_timer.start()
 
 
 func setup_event(args=[]):

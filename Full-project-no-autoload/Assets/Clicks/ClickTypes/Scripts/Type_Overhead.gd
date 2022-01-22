@@ -34,8 +34,7 @@ func _ready():
 func _on_click_body_entered(body: ClickPointer):
 	if body and check_if_safe():  # Pointer.player_clicked
 		Pointer.set_node_entered(self)
-#		execute_dialogue()
-#		print("dialogue fading, type_overhead.gd")
+#		execute_dialogue()  # dialogue is executed in Pointer when clicked
 
 
 func execute_dialogue():

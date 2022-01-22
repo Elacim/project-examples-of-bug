@@ -10,21 +10,32 @@ signal event_queue_finished
 # The lowest priority (i.e. 0) goes first
 var event_queue := []
 var e_q = []
-var priority_range_default := 2  # at the moment, we only need two priority levels
+var priority_range := 2  setget set_priority_range
+# at the moment, we only need two priority levels
 # it is technically redundant to have a bool checking if the queue is empty, but it 
 # should give a small performance boost, as it stops the queue being searched *every* frame 
-#var are_events_in_queue = false setget set_events_in_queue, get_events_in_queue
-#var hov_exit = preload("res://Assets/Events/Events/HoverEntered.gd")
 var are_events_in_queue = false
+
+func set_priority_range(value: int):
+	if priority_range < 0:
+		priority_range = 0
+	else:
+		priority_range = value
+	if are_events_in_queue:
+		execute_all_queue_events()
+	event_queue = []
+	for i in priority_range:
+		event_queue.append([])
+func get_priority_range():
+	return priority_range
 
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
 	connect("event_queue_empty", self, "_on_event_queue_empty")
-	setup_manager()
+	connect("event_queue_started", self, "_on_event_queue_started")
+	connect("event_queue_finished", self, "_on_event_queue_finished")
+	set_priority_range(priority_range)
 
-func setup_manager():
-	event_queue = [ [], [] ]
-	are_events_in_queue = false
 
 func add_to_event_queue(event: Event):
 	if (event):
@@ -38,26 +49,24 @@ func add_to_event_queue(event: Event):
 		else:
 			event_queue[event.priority].append(event)
 		are_events_in_queue = true
-#		print_debug(are_events_in_queue)
-#		print_debug(event_queue)
-#		print("-------")
+		
 
 func _physics_process(_delta: float) -> void:
-	# A simple check to see if we should continue
+	# A simple check to see if we should continue. This should save minor
+	# processing time (we don't have to loop the queue every frame)
 	if are_events_in_queue:
-		print("Events are in queue")
-#	print("event_queue: ", event_queue, " | are_events_in_queue: ", are_events_in_queue)
-	if are_events_in_queue:
-		emit_signal("event_queue_started")
-		var all_events = get_all_events_in_queue()
-		for i in all_events.size():
-			var current_event = all_events.pop_front()
-			current_event.setup_event()
-			current_event.execute()
-		emit_signal("event_queue_finished")
-		emit_signal("event_queue_empty")
-	return
+		execute_all_queue_events()
 
+
+func execute_all_queue_events():
+	emit_signal("event_queue_started")
+	var all_events = get_all_events_in_queue()
+	for i in all_events.size():
+		var current_event = all_events.pop_front()
+		current_event.setup_event()
+		current_event.execute()
+	emit_signal("event_queue_empty")
+	emit_signal("event_queue_finished")
 
 func get_all_events_in_queue():
 	var current_events = []
@@ -84,5 +93,12 @@ func get_lowest_priority_event() -> Event:
 
 # All signal functions
 func _on_event_queue_empty():
-	are_events_in_queue = true
+	are_events_in_queue = false
+
+func _on_event_queue_started():
+#	print_debug(self, "'s event_queue starting execution")
+	pass
+func _on_event_queue_finished():
+#	print_debug(self, "'s event_queue finished execution")
+	pass
 
